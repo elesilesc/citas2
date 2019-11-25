@@ -25,4 +25,9 @@ class Medico extends Model
     {
         return $this->name .' '.$this->surname;
     }
+
+    public function getCodigoAttribute()
+    {
+        return $this->surname .' '.$this->NUHSA;
+    }
 }
