@@ -18,12 +18,4 @@ class Cita extends Model
         return $this->belongsTo('App\Paciente');
     }
 
-    public function getFechaFinAttribute()
-    {
-        $date = 'fecha_hora';
-        $date->modify('+15 minute');
-        //Date("Y:M:s", strtotime("15 minutes", strtotime($fechainit->time)));
-        //{{ date('Y-m-d', strtotime('+15 minutes')) }}
-    }
-
 }
