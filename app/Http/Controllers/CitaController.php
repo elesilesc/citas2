@@ -63,6 +63,9 @@ class CitaController extends Controller
 
         ]);
         $endDate = Carbon::now()->addMinutes(15);
+        //$endDate = Carbon::parse(fecha_hora)->addMinutes(15);
+       // $duracion_cita = carbon::diffInMinutes(fecha_hora - $endDate)->maxvalue(15);
+
 
         $cita = new Cita($request->all());
         $cita->save();
