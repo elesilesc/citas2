@@ -8,8 +8,8 @@ class Medicamento extends Model
 {
     protected $fillable = ['nombre', 'composicion', 'presentacion', 'link', 'tratamiento_id'];
 
-public function tratamientos()
-{
-    return $this->hasMany('App\Tratamiento');
-}
+    public function tratamientos()
+    {
+        return $this->hasMany('App\Tratamiento');
+    }
 }

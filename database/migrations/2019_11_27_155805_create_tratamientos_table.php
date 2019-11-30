@@ -22,9 +22,11 @@ class CreateTratamientosTable extends Migration
             $table->Integer('frecuencia');
             $table->String('instrucciones');
             $table->unsignedInteger('cita_id');
+            $table->unsignedInteger('medicamento_id');
             $table->timestamps();
 
-            $table->foreign('cita_id')->references('id')->on('citas')->onDelete('cascade');
+            $table->foreign('cita_id')->references('id')->on('citas');
+            $table->foreign('medicamento_id')->references('id')->on('medicamento');
         });
     }
 
