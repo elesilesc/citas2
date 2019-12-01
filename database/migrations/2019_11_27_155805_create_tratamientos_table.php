@@ -18,8 +18,8 @@ class CreateTratamientosTable extends Migration
             $table->dateTime('initTime');
             $table->dateTime('endTime');
             $table->String('descripcion');
-            $table->Integer('units');
-            $table->Integer('frecuencia');
+            $table->String('units');
+            $table->String('frecuencia');
             $table->String('instrucciones');
             $table->unsignedInteger('cita_id');
             $table->unsignedInteger('medicamento_id');

@@ -29,7 +29,7 @@
                             {!! Form::text('units',$tratamiento->units,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('frecuencia', 'Frecuencia') !!}
+                            {!! Form::label('frecuencia', 'Frecuencia en horas') !!}
                             {!! Form::text('frecuencia',$tratamiento->frecuencia,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">

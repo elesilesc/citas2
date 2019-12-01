@@ -36,7 +36,6 @@
                                     <td>{{ $tratamiento->units }}</td>
                                     <td>{{ $tratamiento->frecuencia }}</td>
                                     <td>{{ $tratamiento->instrucciones }}</td>
-                                    <td>{{ $tratamiento->cita->fecha_hora }}</td>
                                     <td>
                                         {!! Form::open(['route' => ['tratamientos.edit',$tratamiento->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}

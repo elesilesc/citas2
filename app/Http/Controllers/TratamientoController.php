@@ -78,11 +78,11 @@ class TratamientoController extends Controller
      * @param  \App\Tratamiento  $tratamiento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tratamiento $tratamiento)
+    public function edit($id)
     {
         $tratamiento = Tratamiento::find($id);
         $cita = Cita::all()->pluck('fecha_hora','id');
-        return view('tratamientos/edit',['tratamiento'=> $tratamiento, 'citas'=>$citas ]);
+        return view('tratamientos/edit',['tratamiento'=> $tratamiento, 'citas'=>$cita ]);
     }
 
     /**
@@ -92,7 +92,7 @@ class TratamientoController extends Controller
      * @param  \App\Tratamiento  $tratamiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tratamiento $tratamiento)
+    public function update(Request $request,$id)
     {
         $this->validate($request, [
             'initTime' => 'required|date|after:now',
@@ -119,12 +119,12 @@ class TratamientoController extends Controller
      * @param  \App\Tratamiento  $tratamiento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tratamiento $tratamiento)
+    public function destroy($id)
     {
         $tratamiento = Tratamiento::find($id);
         $tratamiento->delete();
         flash('Tratamiento borrado correctamente');
 
-        return redirect()->route('tratamiento.index');
+        return redirect()->route('tratamientos.index');
     }
 }
