@@ -30,9 +30,7 @@ class MedicamentoController extends Controller
      */
     public function create()
     {
-        $tratamientos = Tratamiento::all()->pluck('descripcion','id');
-
-        return view('medicamentos/create',['tratamientos'=>$tratamientos]);
+        return view('medicamentos/create');
     }
 
     /**
