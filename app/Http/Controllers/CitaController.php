@@ -66,7 +66,11 @@ class CitaController extends Controller
         ]);
 
         /*$cita= Cita::create([
-            'hora_fin' => Carbon::parse($request['fecha_hora'])->addMinutes(15)
+            'medico_id' => $request->medico_id,
+            'paciente_id' => $request->paciente_id,
+            'fecha_hora' => $request->fecha_hora,
+            'localizacion' => $request->localizacion,
+            'hora_fin' => Carbon::parse($request['fecha_hora'])->modify("+{$request[15]} minutes")
         ]);*/
 
 
