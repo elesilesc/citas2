@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cita;
 use App\Tratamiento;
 use Illuminate\Http\Request;
 

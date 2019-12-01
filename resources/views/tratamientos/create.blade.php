@@ -13,11 +13,13 @@
                         {!! Form::open(['route' => 'tratamientos.store']) !!}
                         <div class="form-group">
                             {!! Form::label('initTime', 'Fecha de inicio') !!}
-                            {!! Form::text('initTime',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            <input type="datetime-local" id="initTime" name="initTime" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
+
                         </div>
                         <div class="form-group">
                             {!! Form::label('endTime', 'Fecha de fin') !!}
-                            {!! Form::text('endTime',null,['class'=>'form-control', 'required']) !!}
+                            <input type="datetime-local" id="endTime" name="endTime" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
+
                         </div>
                         <div class="form-group">
                             {!! Form::label('descripcion', 'Descripcion del tratamiento') !!}
@@ -38,7 +40,7 @@
                         <div class="form-group">
                             {!!Form::label('cita_id', 'Cita paciente') !!}
                             <br>
-                            {!! Form::select('cita_id', $citas, $tratamiento->cita_id, ['class' => 'form-control', 'required']) !!}
+                            {!! Form::select('cita_id', $citas, ['class' => 'form-control', 'required']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

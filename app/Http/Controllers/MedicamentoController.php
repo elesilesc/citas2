@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Medicamento;
+use App\Tratamiento;
 use Illuminate\Http\Request;
 
 class MedicamentoController extends Controller
@@ -30,7 +31,9 @@ class MedicamentoController extends Controller
      */
     public function create()
     {
-        return view('medicamentos/create');
+        $tratamientos = Tratamiento::all()->pluck('descripcion','id');
+
+        return view('medicamentos/create',['tratamientos'=>$tratamientos]);
     }
 
     /**

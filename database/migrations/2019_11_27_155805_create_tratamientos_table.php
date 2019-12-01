@@ -26,7 +26,7 @@ class CreateTratamientosTable extends Migration
             $table->timestamps();
 
             $table->foreign('cita_id')->references('id')->on('citas');
-            $table->foreign('medicamento_id')->references('id')->on('medicamento');
+            $table->foreign('medicamento_id')->references('id')->on('medicamentos');
         });
     }
 
