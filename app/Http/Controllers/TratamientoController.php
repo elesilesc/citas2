@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cita;
 use App\Tratamiento;
+use App\Medicamento;
 use Illuminate\Http\Request;
 
 class TratamientoController extends Controller
@@ -31,8 +32,9 @@ class TratamientoController extends Controller
     public function create()
     {
         $citas = Cita::all()->pluck('fecha_hora','id');
+        $medicamentos = Medicamento::all()->pluck('nombre','id');
 
-        return view('tratamientos/create',['citas'=>$citas]);
+        return view('tratamientos/create',['citas'=>$citas], ['medicamentos'=>$medicamentos]);
     }
 
     /**
@@ -50,7 +52,9 @@ class TratamientoController extends Controller
             'units' => 'required|max:255',
             'frecuencia' => 'required|max:255',
             'instrucciones' => 'required|max:255',
-            'cita_id' => 'required|exists:citas,id'
+            'cita_id' => 'required|exists:citas,id',
+            'medicamento_id' => 'required|exists:medicamentos,id'
+
         ]);
         $tratamiento = new Tratamiento($request->all());
         $tratamiento->save();
@@ -82,7 +86,9 @@ class TratamientoController extends Controller
     {
         $tratamiento = Tratamiento::find($id);
         $cita = Cita::all()->pluck('fecha_hora','id');
-        return view('tratamientos/edit',['tratamiento'=> $tratamiento, 'citas'=>$cita ]);
+        $medicamentos = Medicamento::all()->pluck('name','id');
+
+        return view('tratamientos/edit',['tratamiento'=> $tratamiento, 'citas'=>$cita, 'medicamentos'=>$medicamentos ]);
     }
 
     /**
@@ -101,7 +107,9 @@ class TratamientoController extends Controller
             'units' => 'required|max:255',
             'frecuencia' => 'required|max:255',
             'instrucciones' => 'required|max:255',
-            'cita_id' => 'required|exists:citas,id'
+            'cita_id' => 'required|exists:citas,id',
+            'medicamento_id' => 'required|exists:medicamentos,id'
+
         ]);
 
         $tratamiento = Tratamiento::find($id);

@@ -29,7 +29,6 @@
                                     <td>{{ $medicamento->nombre }}</td>
                                     <td>{{ $medicamento->composicion }}</td>
                                     <td>{{ $medicamento->link }}</td>
-                                    <td>{{ $medicamento->tratamiento->descripcion}}</td>
 
                                     <td>
                                         {!! Form::open(['route' => ['medicamentos.edit',$medicamento->id], 'method' => 'get']) !!}
@@ -49,4 +48,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

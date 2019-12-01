@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         @include('flash::message')
 
-                        {!! Form::model($medicamento, [ 'route' => ['medicamento.update',$medicamento->id], 'method'=>'PUT']) !!}
+                        {!! Form::model($medicamento, [ 'route' => ['medicamentos.update',$medicamento->id], 'method'=>'PUT']) !!}
 
                         <div class="form-group">
                             {!! Form::label('nombre', 'Nombre del medicamento') !!}
@@ -25,9 +25,8 @@
                             {!! Form::text('link',$medicamento->link,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
-                            {!!Form::label('tratamiento_id', 'Tratamiento') !!}
-                            <br>
-                            {!! Form::select('tratamiento_id', $tratamientos, $medicamento->tratamiento_id, ['class' => 'form-control', 'required']) !!}
+                            {!! Form::label('presentacion', 'Presentación del medicamento') !!}
+                            {!! Form::text('presentacion',$medicamento->presentacion,['class'=>'form-control', 'required']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
