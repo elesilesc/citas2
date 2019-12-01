@@ -19,10 +19,7 @@ class CreateMedicamentosTable extends Migration
             $table->string('composicion');
             $table->string('presentacion');
             $table->string('link');
-            $table->unsignedInteger('tratamiento_id');
             $table->timestamps();
-
-            $table->foreign('tratamiento_id')->references('id')->on('tratamientos')->onDelete('cascade');
         });
     }
 

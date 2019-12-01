@@ -20,12 +20,10 @@ Route::resource('especialidades', 'EspecialidadController');
 
 Route::resource('medicos', 'MedicoController');
 Route::resource('pacientes', 'PacienteController');
-
-
 Route::resource('citas', 'CitaController');
-
-
-
+Route::resource('enfermedads', 'EnfermedadController');
+Route::resource('medicamentos', 'MedicamentoController');
+Route::resource('tratamientos', 'TratamientoController');
 
 
 Auth::routes();
