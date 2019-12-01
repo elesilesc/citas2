@@ -9,12 +9,12 @@ class Tratamiento extends Model
     protected $fillable = ['initTime', 'endTime', 'descripcion', 'units', 'frecuencia', 'instrucciones',
         'cita_id', 'medicamento_id'];
 
-    public function citas()
+    public function cita()
     {
         return $this->belongsTo('App\Cita');
     }
 
-    public function medicamentos(){
+    public function medicamento(){
         return $this->belongsTo('App\Medicamento');
     }
 }
