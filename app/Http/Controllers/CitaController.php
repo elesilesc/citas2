@@ -61,22 +61,18 @@ class CitaController extends Controller
             'paciente_id' => 'required|exists:pacientes,id',
             'fecha_hora' => 'required|date|after:now',
             'localizacion' => 'required|max:255',
-            //'duracion_cita' => 'required|max:255',
-
         ]);
 
-        /*$cita= Cita::create([
+        $cita= Cita::create([
             'medico_id' => $request->medico_id,
             'paciente_id' => $request->paciente_id,
             'fecha_hora' => $request->fecha_hora,
             'localizacion' => $request->localizacion,
-            'hora_fin' => Carbon::parse($request['fecha_hora'])->modify("+{$request[15]} minutes")
-        ]);*/
-
+            'hora_fin' => Carbon::parse($request['fecha_hora'])->modify("15 minutes")
+        ]);
 
         $cita = new Cita($request->all());
         $cita->save();
-
 
         flash('Cita creada correctamente');
 
