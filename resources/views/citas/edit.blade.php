@@ -35,6 +35,10 @@
                             {!! Form::label('localizacion', 'Localizacion de la cita') !!}
                             {!! Form::text('localizacion',$cita->localizacion,['class'=>'form-control', 'required']) !!}
                         </div>
+                        <div class="form-group">
+                            {!! Form::label('duracion_cita', 'Duracion de la cita') !!}
+                            {!! Form::text('duracion_cita',$cita->duracion_cita,['class'=>'form-control', 'required']) !!}
+                        </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}

@@ -9,6 +9,7 @@ use App\Medico;
 use App\Paciente;
 
 
+
 class CitaController extends Controller
 {
 
@@ -60,11 +61,13 @@ class CitaController extends Controller
             'paciente_id' => 'required|exists:pacientes,id',
             'fecha_hora' => 'required|date|after:now',
             'localizacion' => 'required|max:255',
+            'duracion_cita' => 'required|max:255',
 
         ]);
-        $endDate = Carbon::now()->addMinutes(15);
-        //$endDate = Carbon::parse(fecha_hora)->addMinutes(15);
-       // $duracion_cita = carbon::diffInMinutes(fecha_hora - $endDate)->maxvalue(15);
+
+        $cita= Cita::create([
+            'hora_fin' => Carbon::parse($request['fecha_hora'])->addMinutes(15)
+        ]);
 
 
         $cita = new Cita($request->all());
