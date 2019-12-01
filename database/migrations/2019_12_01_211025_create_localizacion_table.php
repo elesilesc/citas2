@@ -13,7 +13,12 @@ class CreateLocalizacionTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('localizacions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('hospital');
+            $table->string('consulta');
+
+            $table->timestamps();
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateLocalizacionTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('localizaciones');
     }
 }
