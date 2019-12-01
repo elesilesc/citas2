@@ -13,8 +13,8 @@ class Enfermedad extends Model
     {
         return $this->hasMany('App\Paciente');
     }
-    public function especialidades()
+    public function especialidad()
     {
-        return $this->OneToMany('App\Especialidad');
+        return $this->belongsTo('App\Especialidad');
     }
 }

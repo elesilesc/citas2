@@ -18,6 +18,7 @@ class Cita extends Model
         return $this->belongsTo('App\Paciente');
     }
 
-
-
+    public function tratamientos(){
+        return $this->hasMany('App\Tratamiento');
+    }
 }
