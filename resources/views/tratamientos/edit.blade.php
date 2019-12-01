@@ -37,6 +37,11 @@
                             {!! Form::text('instrucciones',$tratamiento->instrucciones,['class'=>'form-control', 'required']) !!}
                         </div>
                         <div class="form-group">
+                            {!!Form::label('medicamento_id', 'Medicamento') !!}
+                            <br>
+                            {!! Form::select('medicamento_id', $medicamentos, $tratamiento->medicamento_id, ['class' => 'form-control', 'required']) !!}
+                        </div>
+                        <div class="form-group">
                             {!!Form::label('cita_id', 'Cita paciente') !!}
                             <br>
                             {!! Form::select('cita_id', $citas, $tratamiento->cita_id, ['class' => 'form-control', 'required']) !!}

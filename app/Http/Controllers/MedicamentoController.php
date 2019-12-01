@@ -31,9 +31,7 @@ class MedicamentoController extends Controller
      */
     public function create()
     {
-        $tratamientos = Tratamiento::all()->pluck('descripcion','id');
-
-        return view('medicamentos/create',['tratamientos'=>$tratamientos]);
+        return view('medicamentos/create');
     }
 
     /**
@@ -49,7 +47,6 @@ class MedicamentoController extends Controller
             'composicion' => 'required|max:255',
             'presentacion' => 'required|max:255',
             'link' => 'required|max:255',
-            'tratamiento_id' => 'required|exists:tratamientos,id'
         ]);
         $medicamento = new Medicamento($request->all());
         $medicamento->save();
@@ -78,31 +75,27 @@ class MedicamentoController extends Controller
      * @param  \App\Medicamento  $medicamento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medicamento $id)
+    public function edit($id)
     {
         $medicamento = Medicamento::find($id);
 
-        $tratamientos = Tratamiento::all()->pluck('composicion','id');
-
-
-        return view('medicamentos/edit',['medicamento'=> $medicamento, 'tratamientos'=>$tratamientos ]);
+        return view('medicamentos/edit')->with('medicamento', $medicamento);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Medicamento  $medicamento
+     * @param \Illuminate\Http\Request $request
+     * @param $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medicamento $id)
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'nombre' => 'required|max:255',
             'composicion' => 'required|max:255',
             'presentacion' => 'required|max:255',
             'link' => 'required|max:255',
-            'tratamiento_id' => 'required|exists:tratamientos,id'
         ]);
 
         $medicamento = Medicamento::find($id);
@@ -121,7 +114,7 @@ class MedicamentoController extends Controller
      * @param  \App\Medicamento  $medicamento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medicamento $id)
+    public function destroy($id)
     {
         $medicamento = Medicamento::find($id);
         $medicamento->delete();

@@ -21,6 +21,7 @@
                                 <th>Descripcion</th>
                                 <th>Unidades</th>
                                 <th>Frecuencia</th>
+                                <th>Medicamento</th>
                                 <th>Instrucciones</th>
 
                                 <th colspan="2">Acciones</th>
@@ -35,6 +36,7 @@
                                     <td>{{ $tratamiento->descripcion }}</td>
                                     <td>{{ $tratamiento->units }}</td>
                                     <td>{{ $tratamiento->frecuencia }}</td>
+                                    <td>{{ $tratamiento->medicamento->nombre }}</td>
                                     <td>{{ $tratamiento->instrucciones }}</td>
                                     <td>
                                         {!! Form::open(['route' => ['tratamientos.edit',$tratamiento->id], 'method' => 'get']) !!}
