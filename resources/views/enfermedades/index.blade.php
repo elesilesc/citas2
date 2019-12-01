@@ -14,18 +14,20 @@
                         {!! Form::close() !!}
 
                         {!! Form::open(['route' => 'enfermedades.destroyAll', 'method' => 'delete', 'class'=>'inline-important']) !!}
-                        {!!   Form::submit('Borrar todas', ['class'=> 'btn btn-danger','onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                        {!!   Form::submit('Borrar todas', ['class'=> 'btn btn-danger','onclick' => 'if(!confirm("¿Está segur@?"))event.preventDefault();'])!!}
                         {!! Form::close() !!}
 
                         <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Nombre</th>
+                                <th>Especialidad</th>
                                 <th colspan="2">Acciones</th>
                             </tr>
                             @foreach ($enfermedades as $enfermedad)
                                 <tr>
                                     <td>{{ $enfermedad->name }}</td>
+                                    <td>{{ $enfermedad->especialidad->name }}</td>
                                     <td>
                                         {!! Form::open(['route' => ['enfermedades.edit',$enfermedad->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
@@ -34,7 +36,7 @@
                                     </td>
                                     <td>
                                         {!! Form::open(['route' => ['enfermedades.destroy',$enfermedad->id], 'method' => 'delete']) !!}
-                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro@"))event.preventDefault();'])!!}
                                         {!! Form::close() !!}
 
                                     </td>
@@ -45,4 +47,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

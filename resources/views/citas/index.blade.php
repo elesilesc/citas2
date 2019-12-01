@@ -20,8 +20,6 @@
                                 <th>Medico</th>
                                 <th>Paciente</th>
                                 <th>Localizacion</th>
-                                <th>Duracion</th>
-                                <th>Hora Fin</th>
                                 <th colspan="2">Acciones</th>
                             </tr>
 
@@ -33,8 +31,6 @@
                                     <td>{{ $cita->medico->full_name }}</td>
                                     <td>{{ $cita->paciente->full_name}}</td>
                                     <td>{{$cita->localizacion}}</td>
-                                    <td>{{$cita->duracion_cita}}</td>
-                                    <td>{{$cita->hora_fin}}</td>
                                     <td>
                                         {!! Form::open(['route' => ['citas.edit',$cita->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
@@ -53,4 +49,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

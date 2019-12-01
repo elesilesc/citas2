@@ -83,7 +83,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('/enfermedads') }}">
+                                        <a href="{{ url('/enfermedades') }}">
                                             Enfermedades
                                         </a>
                                     </li>

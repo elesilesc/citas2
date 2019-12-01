@@ -19,8 +19,7 @@ class CitasTable extends Migration
             $table->unsignedInteger('medico_id');
             $table->unsignedInteger('paciente_id');
             $table->string('localizacion');
-            $table->dateTime('duracion_cita');
-            $table->dateTime('hora_fin');
+            //$table->dateTime('hora_fin');
             $table->timestamps();
 
             $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
@@ -35,7 +34,9 @@ class CitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('citas');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::drop('citas');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 
     }
 }

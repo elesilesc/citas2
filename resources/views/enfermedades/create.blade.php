@@ -15,6 +15,11 @@
                             {!! Form::label('name', 'Nombre de la enfermedad') !!}
                             {!! Form::text('name',null,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
+                        <div class="form-group">
+                            {!!Form::label('especialidad_id', 'Especialidad medico') !!}
+                            <br>
+                            {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control', 'required']) !!}
+                        </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}
