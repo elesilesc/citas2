@@ -9,7 +9,6 @@ use App\Medico;
 use App\Paciente;
 
 
-
 class CitaController extends Controller
 {
 
@@ -44,7 +43,6 @@ class CitaController extends Controller
 
         $localizacion = Cita::all();
 
-
         return view('citas/create',['medicos'=>$medicos, 'pacientes'=>$pacientes, 'localizacion'=>$localizacion]);
     }
 
@@ -62,14 +60,21 @@ class CitaController extends Controller
             'fecha_hora' => 'required|date|after:now',
             'localizacion' => 'required|max:255',
         ]);
+        //$fecha_hora = date_format($request[fecha_hora], 'Y-m-d');
+        //$fecha_fin = Carbon::createFromFormat('Y-m-d', $fecha_hora)->addMinutes(15);
+        //$hora_fin = Carbon::parse($request['fecha_hora'])->addMinutes(15);
+
+        //$fecha_fin = Carbon::createFromFormat('Y-m-d\Th:i', $fecha_hora)->addMinutes(15);
 
         $cita= Cita::create([
             'medico_id' => $request->medico_id,
             'paciente_id' => $request->paciente_id,
             'fecha_hora' => $request->fecha_hora,
             'localizacion' => $request->localizacion,
-            'hora_fin' => Carbon::parse($request['fecha_hora'])->modify("15 minutes")
+            $hora_fin = Carbon::parse($request['fecha_hora'])->addMinutes(15),
+            'hora_fin' =>$hora_fin,
         ]);
+        //'hora_fin' => Carbon::parse($request['fecha_hora'])->modify({"15 minutes")
 
         $cita = new Cita($request->all());
         $cita->save();
@@ -126,6 +131,7 @@ class CitaController extends Controller
             'localizacion' => 'required|max:255',
 
         ]);
+
         $cita = Cita::find($id);
         $cita->fill($request->all());
 
