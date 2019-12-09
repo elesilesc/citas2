@@ -18,16 +18,16 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Composicion</th>
+                                <th>Presentación</th>
                                 <th>Link</th>
                                 <th colspan="2">Acciones</th>
                             </tr>
 
                             @foreach ($medicamentos as $medicamento)
-
-
                                 <tr>
                                     <td>{{ $medicamento->nombre }}</td>
                                     <td>{{ $medicamento->composicion }}</td>
+                                    <td>{{ $medicamento->presentacion }}</td>
                                     <td>{{ $medicamento->link }}</td>
 
                                     <td>

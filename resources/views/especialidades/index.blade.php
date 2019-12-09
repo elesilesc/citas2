@@ -24,23 +24,22 @@
                                 <th colspan="2">Acciones</th>
                             </tr>
                             @foreach ($especialidades as $especialidad)
-                            <tr>
-                                <td>{{ $especialidad->name }}</td>
-                                <td>
-                                    {!! Form::open(['route' => ['especialidades.edit',$especialidad->id], 'method' => 'get']) !!}
-                                    {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
-                                    {!! Form::close() !!}
-
-                                </td>
-                                <td>
-                                    {!! Form::open(['route' => ['especialidades.destroy',$especialidad->id], 'method' => 'delete']) !!}
-                                    {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
-                                    {!! Form::close() !!}
-
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $especialidad->name }}</td>
+                                    <td>
+                                        {!! Form::open(['route' => ['especialidades.edit',$especialidad->id], 'method' => 'get']) !!}
+                                        {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}
+                                        {!! Form::close() !!}
+                                    </td>
+                                    <td>
+                                        {!! Form::open(['route' => ['especialidades.destroy',$especialidad->id], 'method' => 'delete']) !!}
+                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        {!! Form::close() !!}
+                                    </td>
+                                </tr>
                             @endforeach
                         </table>
+                    </div>
                 </div>
             </div>
         </div>
