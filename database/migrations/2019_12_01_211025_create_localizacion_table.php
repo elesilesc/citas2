@@ -19,6 +19,7 @@ class CreateLocalizacionTable extends Migration
             $table->string('consulta');
 
             $table->timestamps();
+        });
     }
 
     /**
@@ -28,6 +29,6 @@ class CreateLocalizacionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('localizaciones');
+        Schema::dropIfExists('localizacions');
     }
 }
