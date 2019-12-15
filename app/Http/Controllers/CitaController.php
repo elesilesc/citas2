@@ -60,7 +60,7 @@ class CitaController extends Controller
             'medico_id' => 'required|exists:medicos,id',
             'paciente_id' => 'required|exists:pacientes,id',
             'fecha_hora' => 'required|date|after:now',
-            'localizacion_id' => 'required|exists:localicaciones,id',
+            'localizacion_id' => 'required|exists:localizaciones,id',
         ]);
 
 
@@ -121,7 +121,7 @@ class CitaController extends Controller
             'medico_id' => 'required|exists:medicos,id',
             'paciente_id' => 'required|exists:pacientes,id',
             'fecha_hora' => 'required|date|after:now',
-            'localizacion_id' => 'required|exists:localizacion_id',
+            'localizacion_id' => 'required|exists:localizaciones,id',
 
         ]);
 
