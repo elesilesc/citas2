@@ -35,8 +35,6 @@
                             <br>
                             {!! Form::select('localizacion_id', $localizaciones, ['class' => 'form-control']) !!}
                         </div>
-
-                        </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}
