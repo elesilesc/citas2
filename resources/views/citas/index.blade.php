@@ -32,7 +32,7 @@
                                     <td>{{$cita->hora_fin}}</td>
                                     <td>{{ $cita->medico->full_name }}</td>
                                     <td>{{ $cita->paciente->full_name}}</td>
-                                    <td>{{$cita->localizacion}}</td>
+                                    <td>{{$cita->localizacion->full_name}}</td>
                                     <td>
                                         {!! Form::open(['route' => ['citas.edit',$cita->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}

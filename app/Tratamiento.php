@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tratamiento extends Model
 {
     protected $fillable = ['initTime', 'endTime', 'descripcion', 'units', 'frecuencia', 'instrucciones',
-        'cita_id', 'medicamento_id'];
+        'cita_id','medicamento_id'];
 
     public function cita()
     {
