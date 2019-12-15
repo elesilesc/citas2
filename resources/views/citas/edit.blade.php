@@ -18,8 +18,8 @@
 
                             <input type="datetime-local" id="fecha_hora" name="fecha_hora" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
 
-
                         </div>
+
 
                         <div class="form-group">
                             {!!Form::label('medico_id', 'Medico') !!}

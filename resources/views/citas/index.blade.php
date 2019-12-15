@@ -17,10 +17,10 @@
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Fecha</th>
-                                <th>Hora de finalización de la cita</th>
                                 <th>Medico</th>
                                 <th>Paciente</th>
                                 <th>Localizacion</th>
+                                <th>Hora de finalización de la cita</th>
                                 <th colspan="2">Acciones</th>
                             </tr>
 
@@ -29,10 +29,10 @@
 
                                 <tr>
                                     <td>{{ $cita->fecha_hora }}</td>
-                                    <td>{{$cita->hora_fin}}</td>
                                     <td>{{ $cita->medico->full_name }}</td>
                                     <td>{{ $cita->paciente->full_name}}</td>
                                     <td>{{$cita->localizacion}}</td>
+                                    <td>{{$cita->hora_fin}}</td>
                                     <td>
                                         {!! Form::open(['route' => ['citas.edit',$cita->id], 'method' => 'get']) !!}
                                         {!!   Form::submit('Editar', ['class'=> 'btn btn-warning'])!!}

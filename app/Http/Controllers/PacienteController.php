@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Paciente;
+use App\Enfermedad;
 
 class PacienteController extends Controller
 {
@@ -19,8 +20,6 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        //
-
         $pacientes = Paciente::all();
 
         return view('pacientes/index',['pacientes'=>$pacientes]);
@@ -33,8 +32,9 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        //
-        return view('pacientes/create');
+        $enfermedades = Enfermedad::all()->pluck('name','id');
+
+        return view('pacientes/create',['enfermedades'=>$enfermedades]);
 
     }
 

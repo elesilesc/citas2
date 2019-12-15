@@ -41,9 +41,7 @@ class CitaController extends Controller
 
         $pacientes = Paciente::all()->pluck('full_name','id');
 
-        $localizacion = Cita::all();
-
-        return view('citas/create',['medicos'=>$medicos, 'pacientes'=>$pacientes, 'localizacion'=>$localizacion]);
+        return view('citas/create',['medicos'=>$medicos, 'pacientes'=>$pacientes]);
     }
 
     /**
@@ -61,10 +59,8 @@ class CitaController extends Controller
             'localizacion' => 'required|max:255',
         ]);
 
-
         $cita = new Cita($request->all());
         $cita->hora_fin = Carbon::parse($request['fecha_hora'])->addMinutes(15);
-
 
         $cita->save();
 
