@@ -98,6 +98,11 @@
                                         </a>
                                     </li>
                                     <li>
+                                        <a href="{{ url('/localizaciones') }}">
+                                            Localizaciones
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ url('/logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
