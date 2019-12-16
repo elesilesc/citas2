@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Http\Request;
 use App\Paciente;
 use App\Enfermedad;
@@ -19,9 +20,8 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($request)
+    public function index(Request $request)
     {
-        $pacientes = Paciente::all();
         $especialidades= Especialidad::all()->pluck('name','id');
 
         $especialidad_id=$request->get('especialidad_id');
@@ -61,14 +61,10 @@ class PacienteController extends Controller
             'surname' => 'required|max:255',
             'nuhsa' => 'required|nuhsa|max:255',
             'enfermedad_id' => 'required|exists:enfermedads,id',
-            'especialidad_id'=>'required|exists:especialidads,id'
         ]);
 
-        //TODO: crear validación propia para nuhsa
         $paciente = new Paciente($request->all());
         $paciente->save();
-
-        // return redirect('especialidades');
 
         flash('Paciente creado correctamente');
 
@@ -83,7 +79,6 @@ class PacienteController extends Controller
      */
     public function show($id)
     {
-        // TODO: Mostrar las citas de un paciente
     }
 
     /**
@@ -115,7 +110,6 @@ class PacienteController extends Controller
             'surname' => 'required|max:255',
             'nuhsa' => 'required|nuhsa|max:255',
             'enfermedad_id' => 'required|exists:enfermedads,id',
-            'especialidad_id'=>'required|exists:especialidads,id'
         ]);
 
         $paciente = Paciente::find($id);

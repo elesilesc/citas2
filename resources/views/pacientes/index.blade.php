@@ -14,9 +14,8 @@
                         {!! Form::open(['route' => 'pacientes.index', 'method'=>'get']) !!}
                         <div class="form-group">
                             <br>
-                            {!! Form::submit('Filtrar por especialidad:',['class'=>'btn btn-default btn-sm']) !!}
+                            <div class="Pacientes">Filtrar pacientes</div>
                             {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control']) !!}
-
                             {!! Form::close() !!}
                             {!! Form::open(['route' => 'pacientes.index', 'method' => 'get']) !!}
                             {!! Form::submit('Mostrar todos', ['class'=> 'btn btn-link btn-sm pull-right'])!!}

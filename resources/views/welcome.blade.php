@@ -91,7 +91,10 @@
                 </div>
                 <div aling="right">
                     <h4>
-                        Grado en Ingeniería de la Salud, Universidad de Sevilla
+                        Grado en Ingeniería de la Salud
+                    </h4>
+                    <h4>
+                        Escuela Técnica Superior de Ingeniería Informática, Universidad de Sevilla
                     </h4>
                 </div>
             </div>
