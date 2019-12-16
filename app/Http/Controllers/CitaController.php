@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Localizacion;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Cita;
@@ -41,7 +42,9 @@ class CitaController extends Controller
 
         $pacientes = Paciente::all()->pluck('full_name','id');
 
-        return view('citas/create',['medicos'=>$medicos, 'pacientes'=>$pacientes]);
+        $localizaciones = Localizacion::all()->pluck('full_name','id');
+
+        return view('citas/create',['medicos'=>$medicos, 'pacientes'=>$pacientes, 'localizaciones'=>$localizaciones]);
     }
 
     /**
@@ -56,7 +59,7 @@ class CitaController extends Controller
             'medico_id' => 'required|exists:medicos,id',
             'paciente_id' => 'required|exists:pacientes,id',
             'fecha_hora' => 'required|date|after:now',
-            'localizacion' => 'required|max:255',
+            'localizacion_id' => 'required|exists:localizacions,id',
         ]);
 
         $cita = new Cita($request->all());
@@ -96,8 +99,9 @@ class CitaController extends Controller
 
         $pacientes = Paciente::all()->pluck('full_name','id');
 
+        $localizaciones = Localizacion::all()->pluck('full_name','id');
 
-        return view('citas/edit',['cita'=> $cita, 'medicos'=>$medicos, 'pacientes'=>$pacientes]);
+        return view('citas/edit',['cita'=> $cita, 'medicos'=>$medicos, 'pacientes'=>$pacientes, 'localizaciones'=>$localizaciones]);
     }
 
     /**
@@ -113,7 +117,7 @@ class CitaController extends Controller
             'medico_id' => 'required|exists:medicos,id',
             'paciente_id' => 'required|exists:pacientes,id',
             'fecha_hora' => 'required|date|after:now',
-            'localizacion' => 'required|max:255',
+           // 'localizacion_id' => 'required|exists:localizacions,id',
 
         ]);
 

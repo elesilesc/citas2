@@ -19,7 +19,7 @@
                                 <th>Fecha</th>
                                 <th>Medico</th>
                                 <th>Paciente</th>
-                                <th>Localizacion</th>
+                                <th>Localización</th>
                                 <th>Hora de finalización de la cita</th>
                                 <th colspan="2">Acciones</th>
                             </tr>
@@ -31,7 +31,7 @@
                                     <td>{{ $cita->fecha_hora }}</td>
                                     <td>{{ $cita->medico->full_name }}</td>
                                     <td>{{ $cita->paciente->full_name}}</td>
-                                    <td>{{$cita->localizacion}}</td>
+                                    <td>{{$cita->localizacion->full_name}}</td>
                                     <td>{{$cita->hora_fin}}</td>
                                     <td>
                                         {!! Form::open(['route' => ['citas.edit',$cita->id], 'method' => 'get']) !!}

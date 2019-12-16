@@ -13,11 +13,8 @@
                         {!! Form::open(['route' => 'citas.store']) !!}
                         <div class="form-group">
                             {!! Form::label('fecha_hora', 'Fecha y hora de la cita') !!}
-
                             <input type="datetime-local" id="fecha_hora" name="fecha_hora" class="form-control" value="{{Carbon\Carbon::now()->format('Y-m-d\Th:i')}}" />
-
                         </div>
-
                         <div class="form-group">
                             {!!Form::label('medico_id', 'Medico') !!}
                             <br>
@@ -29,8 +26,8 @@
                             {!! Form::select('paciente_id', $pacientes, ['class' => 'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('localizacion', 'Localizacion de la cita') !!}
-                            {!! Form::text('localizacion',null,['class'=>'form-control', 'required']) !!}
+                            {!! Form::label('localizacion_id', 'Localización de la cita') !!}
+                            {!! Form::select('localizacion_id',$localizaciones,['class'=>'form-control', 'required']) !!}
                         </div>
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}

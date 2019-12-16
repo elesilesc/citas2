@@ -32,6 +32,8 @@ Route::resource('medicamentos', 'MedicamentoController');
 
 Route::resource('tratamientos', 'TratamientoController');
 
+Route::resource('localizaciones', 'LocalizacionController');
+
 
 Auth::routes();
 
