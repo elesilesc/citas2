@@ -10,13 +10,13 @@
                     <div class="panel-body">
                         @include('flash::message')
 
-                        {!! Form::open(['route' => 'enfermedades.store', 'class'=>'form-inline']) !!}
+                        {!! Form::open(['route' => 'enfermedades.store', 'class'=>'form-block']) !!}
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre de la enfermedad') !!}
                             {!! Form::text('name',null,['class'=>'form-control', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
-                            {!!Form::label('especialidad_id', 'Especialidad medico') !!}
+                            {!!Form::label('especialidad_id', 'Especialidad médico') !!}
                             <br>
                             {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control', 'required']) !!}
                         </div>
