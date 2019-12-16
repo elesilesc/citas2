@@ -27,6 +27,13 @@
                             <br>
                             {!! Form::select('enfermedad_id', $enfermedades, ['class' => 'form-control', 'required']) !!}
                         </div>
+                        @foreach ($pacientes as $paciente)
+                            </tr>
+                            <td>{{ $paciente->enfermedad_id }}</td>
+
+                            </tr>
+                        @endforeach
+                        </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}

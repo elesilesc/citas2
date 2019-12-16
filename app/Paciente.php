@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Paciente extends Model
 {
     //
-    protected $fillable = ['name', 'surname', 'nuhsa'];
+    protected $fillable = ['name', 'surname', 'nuhsa', 'enfermedad_id'];
 
 
     public function citas()
@@ -20,4 +20,6 @@ class Paciente extends Model
     {
         return $this->name .' '.$this->surname;
     }
+
+
 }
