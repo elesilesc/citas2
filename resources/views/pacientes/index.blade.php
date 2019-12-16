@@ -11,14 +11,19 @@
                         @include('flash::message')
                         {!! Form::open(['route' => 'pacientes.create', 'method' => 'get']) !!}
                         {!!   Form::submit('Crear paciente', ['class'=> 'btn btn-primary'])!!}
-                        {!! Form::label('enfermedad_id', 'Enfermedad del paciente') !!}
+                        {!! Form::open(['route' => 'pacientes.index', 'method'=>'get']) !!}
+                        <div class="form-group">
+                            <br>
+                            {!! Form::submit('Filtrar por especialidad:',['class'=>'btn btn-default btn-sm']) !!}
+                            {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control']) !!}
+
+                            {!! Form::close() !!}
+                            {!! Form::open(['route' => 'pacientes.index', 'method' => 'get']) !!}
+                            {!! Form::submit('Mostrar todos', ['class'=> 'btn btn-link btn-sm pull-right'])!!}
+                            {!! Form::close() !!}
+                            <div className="links">{{$pacientes->links()}}</div>
+                        </div>
                         <br>
-                        {!! Form::select('enfermedad_id', $enfermedades, ['class' => 'form-control', 'required']) !!}
-                        @foreach ($pacientes as $paciente)
-                            <tr>
-                                <td>{{$paciente -> enfermedad-> name}}</td>
-                            </tr>
-                        @endforeach
 
                         {!! Form::close() !!}
 

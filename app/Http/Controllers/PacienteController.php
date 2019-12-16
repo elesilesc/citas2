@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Paciente;
 use App\Enfermedad;
+use App\Especialidad;
 
 class PacienteController extends Controller
 {
@@ -18,11 +19,19 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($request)
     {
         $pacientes = Paciente::all();
+        $especialidades= Especialidad::all()->pluck('name','id');
 
-        return view('pacientes/index',['pacientes'=>$pacientes]);
+        $especialidad_id=$request->get('especialidad_id');
+        $query_base = Paciente::orderBy('id', 'desc');
+        if(isset($especialidad_id) && $especialidad_id!=""){
+            $query_base->where('especialidad_id',$especialidad_id);
+        }
+        $pacientes = $query_base->paginate(6);
+        return view('pacientes/index',compact('pacientes'),['especialidades'=>$especialidades])->withUsers($pacientes);
+
     }
 
     /**
@@ -50,7 +59,9 @@ class PacienteController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
-            'nuhsa' => 'required|nuhsa|max:255'
+            'nuhsa' => 'required|nuhsa|max:255',
+            'enfermedad_id' => 'required|exists:enfermedads,id',
+            'especialidad_id'=>'required|exists:especialidads,id'
         ]);
 
         //TODO: crear validación propia para nuhsa
@@ -102,7 +113,9 @@ class PacienteController extends Controller
         $this->validate($request, [
             'name' => 'required|max:255',
             'surname' => 'required|max:255',
-            'nuhsa' => 'required|nuhsa|max:255'
+            'nuhsa' => 'required|nuhsa|max:255',
+            'enfermedad_id' => 'required|exists:enfermedads,id',
+            'especialidad_id'=>'required|exists:especialidads,id'
         ]);
 
         $paciente = Paciente::find($id);
