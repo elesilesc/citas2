@@ -37,6 +37,9 @@ class CreateTratamientosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tratamientos');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::drop('tratamientos');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        //Schema::dropIfExists('tratamientos');
     }
 }

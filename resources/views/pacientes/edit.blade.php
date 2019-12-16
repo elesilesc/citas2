@@ -23,6 +23,7 @@
                         <div class="form-group">
                             {!! Form::label('nuhsa', 'NUHSA del paciente') !!}
                             {!! Form::text('nuhsa',$paciente->nuhsa,['class'=>'form-control', 'required']) !!}
+                        </div>
                         <div class="form-group">
                             {!!Form::label('enfermedad_id', 'Enfermedad del paciente') !!}
                             <br>

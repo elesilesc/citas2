@@ -2,11 +2,12 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Cita extends Model
 {
-    protected $fillable = ['fecha_hora', 'medico_id', 'paciente_id', 'hora_fin', 'localizacion_id'];
+    protected $fillable = ['fecha_hora', 'medico_id', 'paciente_id', 'localizacion', 'hora_fin'];
 
     public function medico()
     {
@@ -20,9 +21,5 @@ class Cita extends Model
 
     public function tratamientos(){
         return $this->hasMany('App\Tratamiento');
-    }
-
-    public function localizaciones(){
-        return $this->belongsTo('App\Localizacion');
     }
 }

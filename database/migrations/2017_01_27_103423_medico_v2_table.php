@@ -34,7 +34,11 @@ class MedicoV2Table extends Migration
      */
     public function down()
     {
+        //Schema::drop('medicos');
+
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::drop('medicos');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 
         Schema::create('medicos', function (Blueprint $table) {
             $table->increments('id');

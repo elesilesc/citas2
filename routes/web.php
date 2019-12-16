@@ -31,8 +31,6 @@ Route::delete('medicamentos/destroyAll', 'MedicamentoController@destroyAll')->na
 Route::resource('medicamentos', 'MedicamentoController');
 
 Route::resource('tratamientos', 'TratamientoController');
-Route::resource('localizaciones', 'LocalizacionController');
-
 
 
 Auth::routes();

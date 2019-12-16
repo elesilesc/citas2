@@ -21,7 +21,6 @@
                                 <th>Nuhsa</th>
                                 <th>Enfermedad</th>
 
-
                                 <th colspan="2">Acciones</th>
                             </tr>
 
@@ -52,4 +51,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection

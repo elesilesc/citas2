@@ -15,6 +15,9 @@ class Paciente extends Model
         return $this->hasMany('App\Cita');
     }
 
+    public function enfermedad(){
+        return $this->belongsTo('App\Enfermedad');
+    }
 
     public function getFullNameAttribute()
     {
