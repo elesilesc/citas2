@@ -15,7 +15,9 @@
                         <br>
                         {!! Form::select('enfermedad_id', $enfermedades, ['class' => 'form-control', 'required']) !!}
                         @foreach ($pacientes as $paciente)
-                            <td>{{$paciente -> enfermedad-> name}}</td>
+                            <tr>
+                                <td>{{$paciente -> enfermedad-> name}}</td>
+                            </tr>
                         @endforeach
 
                         {!! Form::close() !!}
