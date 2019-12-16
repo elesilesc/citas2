@@ -7,6 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear paciente</div>
 
+
                     <div class="panel-body">
                         @include('flash::message')
 
@@ -27,13 +28,6 @@
                             {!! Form::label('enfermedad_id', 'Enfermedad del paciente') !!}
                             <br>
                             {!! Form::select('enfermedad_id', $enfermedades, ['class' => 'form-control', 'required']) !!}
-                        </div>
-                        @foreach ($pacientes as $paciente)
-                            </tr>
-                            <td>{{ $paciente->enfermedad_id }}</td>
-
-                            </tr>
-                        @endforeach
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 

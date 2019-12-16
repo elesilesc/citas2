@@ -11,6 +11,13 @@
                         @include('flash::message')
                         {!! Form::open(['route' => 'pacientes.create', 'method' => 'get']) !!}
                         {!!   Form::submit('Crear paciente', ['class'=> 'btn btn-primary'])!!}
+                        {!! Form::label('enfermedad_id', 'Enfermedad del paciente') !!}
+                        <br>
+                        {!! Form::select('enfermedad_id', $enfermedades, ['class' => 'form-control', 'required']) !!}
+                        @foreach ($pacientes as $paciente)
+                            <td>{{$paciente -> enfermedad-> name}}</td>
+                        @endforeach
+
                         {!! Form::close() !!}
 
                         <br><br>
