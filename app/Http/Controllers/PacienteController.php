@@ -85,7 +85,9 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::find($id);
 
-        return view('pacientes/edit',['paciente'=> $paciente ]);
+        $enfermedades = Enfermedad::all()->pluck('name','id');
+
+        return view('pacientes/edit',['paciente'=> $paciente, 'enfermedades'=>$enfermedades]);
     }
 
     /**
