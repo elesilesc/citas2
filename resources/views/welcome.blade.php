@@ -13,10 +13,10 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #d2fdc9;
+                color: #000;
                 font-family: 'Raleway', sans-serif;
-                font-weight: 100;
+                font-weight: 500;
                 height: 100vh;
                 margin: 0;
             }
@@ -50,7 +50,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #02307e;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                     SoS: Citas Pacientes CON CAMBIO
+                     SoS: Aplicación de citas
                 </div>
 
                 <div class="links">
@@ -88,6 +88,11 @@
                     <a href="https://laravelcollective.com/docs/5.3/html">Formularios</a>
                     <a href="http://php.net/manual/es/langref.php">PHP</a>
                     <a href="https://www.mysql.com/products/workbench/">MySQL</a>
+                </div>
+                <div aling="right">
+                    <h4>
+                        Grado en Ingeniería de la Salud, Universidad de Sevilla
+                    </h4>
                 </div>
             </div>
         </div>
