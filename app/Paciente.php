@@ -19,13 +19,19 @@ class Paciente extends Model
         return $this->belongsTo('App\Enfermedad');
     }
 
-    public function especialidad(){
-        return $this->belongsTo('App\Especialidad');
-    }
 
     public function getFullNameAttribute()
     {
         return $this->name .' '.$this->surname;
+    }
+
+    public function scopeEspecialidad($query, $especialidad)
+    {
+        $especialidades= 'especialidad_id';
+        if($especialidad != "" && isset($especialidades[$especialidad]))
+        {
+           $query-> where('especialidad', $especialidad);
+        }
     }
 
 

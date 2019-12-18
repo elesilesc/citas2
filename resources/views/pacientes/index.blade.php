@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <br>
                             <div class="Pacientes">Filtrar pacientes</div>
-                            {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control']) !!}
+                            {!! Form::select('especialidad_id', especialidad_id, null, ['class' => 'form-control']) !!}
                             {!! Form::close() !!}
                             {!! Form::open(['route' => 'pacientes.index', 'method' => 'get']) !!}
                             {!! Form::submit('Mostrar todos', ['class'=> 'btn btn-link btn-sm pull-right'])!!}
