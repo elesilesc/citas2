@@ -10,22 +10,12 @@
                     <div class="panel-body">
                         @include('flash::message')
                         {!! Form::open(['route' => 'pacientes.create', 'method' => 'get']) !!}
-                        {!!   Form::submit('Crear paciente', ['class'=> 'btn btn-primary'])!!}
-                        {!! Form::open(['route' => 'pacientes.index', 'method'=>'get']) !!}
-                        <div class="form-group">
-                            <br>
-                            <div class="Pacientes">Filtrar pacientes</div>
-                            {!! Form::select('especialidad_id', especialidad_id, null, ['class' => 'form-control']) !!}
-                            {!! Form::close() !!}
-                            {!! Form::open(['route' => 'pacientes.index', 'method' => 'get']) !!}
-                            {!! Form::submit('Mostrar todos', ['class'=> 'btn btn-link btn-sm pull-right'])!!}
-                            {!! Form::close() !!}
-                            <div className="links">{{$pacientes->links()}}</div>
-                        </div>
-                        <br>
-
+                        {!! Form::submit('Crear paciente', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
+                        {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control']) !!}
 
+                        {!! Form::submit('Buscar',['class'=>'btn-xs']) !!}
+                        {!! Form::close() !!}
                         <br><br>
                         <table class="table table-striped table-bordered">
                             <tr>

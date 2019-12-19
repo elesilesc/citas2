@@ -19,7 +19,6 @@
                             {!! Form::label('consulta', 'Consulta') !!}
                             {!! Form::text('consulta',null,['class'=>'form-control', 'required']) !!}
                         </div>
-                        </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}

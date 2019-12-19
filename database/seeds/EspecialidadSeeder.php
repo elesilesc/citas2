@@ -11,8 +11,18 @@ class EspecialidadSeeder extends Seeder
      */
     public function run()
     {
+        /*$faker = Faker::create();
+for ($i=0; $i < 50; $i++) {
+    \DB::table('pasteles')->insert(array(
+           'nombre' => $faker->firstNameFemale,
+           'sabor'  => $faker->randomElement(['chocolate','vainilla','cheesecake']),
+           'created_at' => date('Y-m-d H:m:s'),
+           'updated_at' => date('Y-m-d H:m:s')
+    ));
+}*/
         DB::table('especialidads')->insert([
             'name' => 'Cardiología',
+
         ]);
 
         DB::table('especialidads')->insert([
