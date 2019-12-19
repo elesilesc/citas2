@@ -12,6 +12,14 @@
                         {!! Form::open(['route' => 'citas.create', 'method' => 'get']) !!}
                         {!!   Form::submit('Crear cita', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
+                        <br>
+                        {!! Form::open(['route' => ['citas.show','id'], 'method' => 'get']) !!}
+                        {!!   Form::submit('Mostrar todas las citas', ['class'=> 'btn btn-primary'])!!}
+                        {!! Form::close() !!}
+                        <br>
+                        {!! Form::open(['route' => ['citas.index','id'], 'method' => 'get']) !!}
+                        {!!   Form::submit('Mostrar citas futuras', ['class'=> 'btn btn-primary'])!!}
+                        {!! Form::close() !!}
 
                         <br><br>
                         <table class="table table-striped table-bordered">

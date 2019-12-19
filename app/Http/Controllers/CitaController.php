@@ -26,7 +26,14 @@ class CitaController extends Controller
      */
     public function index()
     {
-        $citas = Cita::all();
+        $todascitas = Cita::all();
+        $citas= array();
+        $fecha_actual = Carbon::now()->format('Y-m-d\Th:i h:m');
+        foreach($todascitas as $cita){
+            if($fecha_actual<$cita->fecha_hora){
+                array_push($citas,$cita);
+            }
+        }
 
         return view('citas/index',['citas'=>$citas]);
     }
@@ -80,8 +87,9 @@ class CitaController extends Controller
      */
     public function show($id)
     {
-        $cita = App\Cita.find($id);
-        echo($cita -> medico -> name);
+        $citas = Cita::all();
+        return view('citas/index', ['citas' => $citas]);
+
     }
 
     /**
