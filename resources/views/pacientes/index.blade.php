@@ -12,8 +12,8 @@
                         {!! Form::open(['route' => 'pacientes.create', 'method' => 'get']) !!}
                         {!! Form::submit('Crear paciente', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
+                        <br>
                         {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control']) !!}
-
                         {!! Form::submit('Buscar',['class'=>'btn-xs']) !!}
                         {!! Form::close() !!}
                         <br><br>

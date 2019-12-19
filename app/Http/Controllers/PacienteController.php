@@ -22,17 +22,16 @@ class PacienteController extends Controller
      */
     public function index(Request $request)
     {
-        $enfermedades = Enfermedad::all()->pluck('name', 'id');
         $especialidades= Especialidad::all()->pluck('name','id');
 
-        $especialidad_id=$request->get('especialidad_id');
+        $especialidad_id=Especialidad::all()->get('id');
+            //$request->get('especialidad_id');
         $query_base = Paciente::orderBy('id', 'desc');
         if(isset($especialidad_id) && $especialidad_id!=""){
             $query_base->where('especialidad_id',$especialidad_id);
         }
-
-        $pacientes = $query_base->paginate(6);
-        return view('pacientes/index',['enfermedades'=>$enfermedades,'especialidades'=>$especialidades])->withUsers($pacientes);
+        $pacientes = $query_base->paginate();
+        return view('pacientes/index',compact('pacientes'),['especialidades'=>$especialidades])->withUsers($pacientes);
     }
 
     /**
