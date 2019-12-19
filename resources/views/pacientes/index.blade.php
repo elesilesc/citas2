@@ -13,6 +13,8 @@
                         {!! Form::submit('Crear paciente', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
                         <br>
+                        {!! Form::label('especialidad_id', 'Filtrar por especialidad') !!}
+                        <br>
                         {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control']) !!}
                         {!! Form::submit('Buscar',['class'=>'btn-xs']) !!}
                         {!! Form::close() !!}

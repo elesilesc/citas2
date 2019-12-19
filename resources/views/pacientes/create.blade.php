@@ -28,7 +28,6 @@
                             <br>
                             {!! Form::select('enfermedad_id', $enfermedades, ['class' => 'form-control', 'required']) !!}
                         </div>
-                        </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}
