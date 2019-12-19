@@ -24,8 +24,7 @@ class PacienteController extends Controller
     {
         $especialidades= Especialidad::all()->pluck('name','id');
 
-        $especialidad_id=Especialidad::all()->get('id');
-            //$request->get('especialidad_id');
+        $especialidad_id=$request->get('especialidad_id');
         $query_base = Paciente::orderBy('id', 'desc');
         if(isset($especialidad_id) && $especialidad_id!=""){
             $query_base->where('especialidad_id',$especialidad_id);
@@ -55,6 +54,10 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
+        $enfermedad_id=$request->get('enfermedad_id');
+        $enfermedad=Enfermedad::find($enfermedad_id);
+        $especialidad_id=$enfermedad->especialidad_id;
+        $request->merge(["especialidad_id"=>$especialidad_id]);
 
         $this->validate($request, [
             'name' => 'required|max:255',
@@ -105,6 +108,7 @@ class PacienteController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $this->validate($request, [
             'name' => 'required|max:255',
             'surname' => 'required|max:255',

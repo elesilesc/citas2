@@ -13,15 +13,12 @@
                         {!!   Form::submit('Crear cita', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
                         <br>
-                        {!! Form::open(['route' => ['citas.show','id'], 'method' => 'get']) !!}
-                        {!!   Form::submit('Mostrar todas las citas', ['class'=> 'btn btn-primary'])!!}
-                        {!! Form::close() !!}
-                        <br>
                         {!! Form::open(['route' => ['citas.index','id'], 'method' => 'get']) !!}
-                        {!!   Form::submit('Mostrar citas futuras', ['class'=> 'btn btn-primary'])!!}
+                        {!!   Form::submit('Mostrar citas futuras', ['class'=> 'btn btn-link btn-sm'])!!}
                         {!! Form::close() !!}
-
-                        <br><br>
+                        {!! Form::open(['route' => ['citas.show','id'], 'method' => 'get']) !!}
+                        {!!   Form::submit('Mostrar todas las citas', ['class'=> 'btn btn-link btn-sm'])!!}
+                        {!! Form::close() !!}
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Fecha</th>

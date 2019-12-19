@@ -13,12 +13,14 @@
                         {!! Form::submit('Crear paciente', ['class'=> 'btn btn-primary'])!!}
                         {!! Form::close() !!}
                         <br>
-                        {!! Form::label('especialidad_id', 'Filtrar por especialidad') !!}
-                        <br>
-                        {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control']) !!}
-                        {!! Form::submit('Buscar',['class'=>'btn-xs']) !!}
+                        {!! Form::open(['route' => 'pacientes.index', 'method' => 'get']) !!}
+                        {!! Form::label('especialidad_id', 'Filtrar por la especialidad de la enfermedad') !!}
+                        {!! Form::select('especialidad_id', $especialidades, ['class'=>'form-control']) !!}
+                        {!! Form::submit('Buscar',['class'=> 'btn xs']) !!}
                         {!! Form::close() !!}
-                        <br><br>
+                        {!! Form::open(['route' => 'pacientes.index', 'method' => 'get']) !!}
+                        {!! Form::submit('Mostrar todos los pacientes', ['class'=> 'btn btn-link btn-sm'])!!}
+                        {!! Form::close() !!}
                         <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Nombre</th>

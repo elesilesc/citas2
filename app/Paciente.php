@@ -8,7 +8,7 @@ use App\Especialidad;
 class Paciente extends Model
 {
     //
-    protected $fillable = ['name', 'surname', 'nuhsa','enfermedad_id'];
+    protected $fillable = ['name', 'surname', 'nuhsa','enfermedad_id','especialidad_id'];
 
 
     public function citas()
