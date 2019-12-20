@@ -37,7 +37,7 @@
                                     </td>
                                     <td>
                                         {!! Form::open(['route' => ['medicos.destroy',$medico->id], 'method' => 'delete']) !!}
-                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está seguro?"))event.preventDefault();'])!!}
+                                        {!!   Form::submit('Borrar', ['class'=> 'btn btn-danger' ,'onclick' => 'if(!confirm("¿Está segur@?"))event.preventDefault();'])!!}
                                         {!! Form::close() !!}
 
                                     </td>
