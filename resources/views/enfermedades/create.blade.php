@@ -13,11 +13,10 @@
                         {!! Form::open(['route' => 'enfermedades.store', 'class'=>'form-block']) !!}
                         <div class="form-group">
                             {!! Form::label('name', 'Nombre de la enfermedad') !!}
-                            {!! Form::text('name',null,['class'=>'form-control', 'required', 'autofocus']) !!}
+                            {!! Form::text('name',null,['class'=>'form-block', 'required', 'autofocus']) !!}
                         </div>
                         <div class="form-group">
                             {!!Form::label('especialidad_id', 'Especialidad médico') !!}
-                            <br>
                             {!! Form::select('especialidad_id', $especialidades, ['class' => 'form-control', 'required']) !!}
                         </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}

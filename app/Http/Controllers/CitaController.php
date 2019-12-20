@@ -142,11 +142,18 @@ class CitaController extends Controller
 
         $cita->hora_fin = Carbon::parse($request['fecha_hora'])->addMinutes(15);
 
-        $cita->save();
+        $enfesp=$cita->paciente->enfermedad->especialidad;
+        $medesp=$cita->medico->especialidad;
+        if(($medesp!=$enfesp)) {
+            return Redirect::back()->withErrors(['El médico no pertenece a la especialidad de la enfermedad']);
+            //flash('El médico no pertenece a la especialidad de la enfermedad');
+        }
+        else{
+            $cita->save();
+            flash('Cita modificada correctamente');
+            return redirect()->route('citas.index');
+        }
 
-        flash('Cita modificada correctamente');
-
-        return redirect()->route('citas.index');
     }
 
     /**
