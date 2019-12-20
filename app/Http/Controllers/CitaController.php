@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Cita;
 use App\Medico;
 use App\Paciente;
+use Illuminate\Support\Facades\Redirect;
 
 
 class CitaController extends Controller
@@ -72,11 +73,18 @@ class CitaController extends Controller
         $cita = new Cita($request->all());
         $cita->hora_fin = Carbon::parse($request['fecha_hora'])->addMinutes(15);
 
-        $cita->save();
+        $enfesp=$cita->paciente->enfermedad->especialidad;
+        $medesp=$cita->medico->especialidad;
+        if(($medesp!=$enfesp)) {
+            return Redirect::back()->withErrors(['El médico no pertenece a la especialidad de la enfermedad']);
+            //flash('El médico no pertenece a la especialidad de la enfermedad');
+        }
+        else{
+            $cita->save();
+            flash('Cita creada correctamente');
+            return redirect()->route('citas.index');
+        }
 
-        flash('Cita creada correctamente');
-
-        return redirect()->route('citas.index');
     }
 
     /**
