@@ -15,7 +15,7 @@
                         <br>
                         {!! Form::open(['route' => 'pacientes.index', 'method' => 'get']) !!}
                         {!! Form::label('especialidad_id', 'Filtrar por la especialidad de la enfermedad') !!}
-                        {!! Form::select('especialidad_id', $especialidades, ['class'=>'form-control']) !!}
+                        {!! Form::select('especialidad_id', $especialidades, ['class'=>'btn btn-default', 'placeholder'=>'Seleccione una enfermedad']) !!}
                         {!! Form::submit('Buscar',['class'=> 'btn xs']) !!}
                         {!! Form::close() !!}
                         {!! Form::open(['route' => 'pacientes.index', 'method' => 'get']) !!}
