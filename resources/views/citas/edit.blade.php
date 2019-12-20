@@ -30,7 +30,6 @@
                             {!! Form::label('localizacion_id', 'Localización de la cita') !!}
                             {!! Form::select('localizacion_id', $localizaciones, $cita->localizacion_id,['class'=>'form-control', 'required']) !!}
                         </div>
-                        </div>
                         {!! Form::submit('Guardar',['class'=>'btn-primary btn']) !!}
 
                         {!! Form::close() !!}

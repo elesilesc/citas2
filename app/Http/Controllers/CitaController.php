@@ -117,7 +117,17 @@ class CitaController extends Controller
 
         $localizaciones = Localizacion::all()->pluck('full_name','id');
 
-        return view('citas/edit',['cita'=> $cita, 'medicos'=>$medicos, 'pacientes'=>$pacientes, 'localizaciones'=>$localizaciones]);
+        $enfesp=$cita->paciente->enfermedad->especialidad;
+        $medesp=$cita->medico->especialidad;
+
+        if(($medesp!=$enfesp)) {
+            return Redirect::back()->withErrors(['El médico no pertenece a la especialidad de la enfermedad']);
+            //flash('El médico no pertenece a la especialidad de la enfermedad');
+        }
+        else {
+
+            return view('citas/edit', ['cita' => $cita, 'medicos' => $medicos, 'pacientes' => $pacientes, 'localizaciones' => $localizaciones]);
+        }
     }
 
     /**
